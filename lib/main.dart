@@ -39,14 +39,17 @@ class OrderItemDisplay extends StatelessWidget {
   }
 }*/
 
-      return Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
-              Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
-              Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
-            ]
-          );
+      return Container(
+        color: Colors.amber,
+        child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
+                Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
+                Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
+              ]
+            ),
+      );
         }
       }
       

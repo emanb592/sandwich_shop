@@ -29,7 +29,7 @@ class OrderItemDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    /*return Container(
       alignment: Alignment.center,
       color: Colors.blue[600],
       width: 300.0,
@@ -37,7 +37,20 @@ class OrderItemDisplay extends StatelessWidget {
       child: Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
     );
   }
-}
+}*/
+
+      return Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
+              Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
+              Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
+            ]
+          );
+        }
+      }
+      
+
 
 
 

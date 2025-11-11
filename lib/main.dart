@@ -10,37 +10,12 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Sandwich Shop App',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Sandwich Counter')),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const OrderItemDisplay(5, 'Footlong'),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  ElevatedButton(
-                    onPressed: () => print('Add button pressed!'),
-                    child: const Text('Add'),
-                  ),
-
-                  ElevatedButton(
-                    onPressed: () => print('Remove button pressed!'),
-                    child: const Text('Remove'),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
+      home: OrderScreen(),
     );
   }
 }
-
 class OrderScreen extends StatefulWidget {
   final int maxQuantity;
 

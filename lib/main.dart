@@ -60,11 +60,11 @@ void _decreasequantity() {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                    onPressed: () => print('Add button pressed!'),
+                    onPressed: _increasequantity,
                     child: const Text('Add'),
                 ),
                 ElevatedButton(
-                    onPressed: () => print('Remove button pressed!'),
+                    onPressed: _decreasequantity,
                     child: const Text('Remove'),
                 ),    
               ]

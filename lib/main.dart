@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,12 +9,10 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Sandwich Shop App',
-      home: OrderScreen(),
-    );
+    return const MaterialApp(title: 'Sandwich Shop App', home: OrderScreen());
   }
 }
+
 class OrderScreen extends StatefulWidget {
   final int maxQuantity;
 
@@ -29,49 +26,64 @@ class OrderScreen extends StatefulWidget {
 
 class _OrderScreenState extends State<OrderScreen> {
   int _quantity = 0;
+  String _note = '';
+  final TextEditingController _noteController = TextEditingController();
 
-void _increasequantity() {
-  if(_quantity < widget.maxQuantity) {
-    setState (() => _quantity++);
+  void _increasequantity() {
+    if (_quantity < widget.maxQuantity) {
+      setState(() => _quantity++);
+    }
   }
-}
 
-void _decreasequantity() {
-  if(_quantity > 0) {
-    setState (() => _quantity--);
+  void _decreasequantity() {
+    if (_quantity > 0) {
+      setState(() => _quantity--);
+    }
   }
-}
+
+  @override
+  void dispose() {
+    _noteController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Sandwich Counter'),
-      ),
+      appBar: AppBar(title: const Text('Sandwich Counter')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            OrderItemDisplay(
-              _quantity,
-               'Footlong',
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
+              child: TextField(
+                controller: _noteController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: 'Special instructions',
+                  hintText: 'e.g., no onions, extra pickles',
+                ),
+                onChanged: (value) => setState(() => _note = value),
+              ),
             ),
+            OrderItemDisplay(_quantity, 'Footlong', _note),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                    onPressed: _increasequantity,
-                    child: const Text('Add'),
+                  onPressed: _increasequantity,
+                  child: const Text('Add'),
                 ),
                 ElevatedButton(
-                    onPressed: _decreasequantity,
-                    child: const Text('Remove'),
-                ),    
-              ]
-            )
-          ]
-        )
-      ,),
+                  onPressed: _decreasequantity,
+                  child: const Text('Remove'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
@@ -79,21 +91,12 @@ void _decreasequantity() {
 class OrderItemDisplay extends StatelessWidget {
   final String itemType;
   final int quantity;
+  final String note;
 
-  const OrderItemDisplay(this.quantity, this.itemType, {super.key});
+  const OrderItemDisplay(this.quantity, this.itemType, this.note, {super.key});
 
   @override
   Widget build(BuildContext context) {
-    /*return Container(
-      alignment: Alignment.center,
-      color: Colors.blue[600],
-      width: 300.0,
-      height: 200.0,
-      child: Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
-    );
-  }
-}*/
-
     return Container(
       color: Colors.amber,
       child: Row(
@@ -102,6 +105,8 @@ class OrderItemDisplay extends StatelessWidget {
           Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
           Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
           Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
+          if (note.isNotEmpty)
+            Text('Note: $note', style: const TextStyle(fontStyle: FontStyle.italic)),
         ],
       ),
     );

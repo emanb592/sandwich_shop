@@ -27,7 +27,10 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   int _quantity = 0;
   String _note = '';
+  String _selectedSize = 'Regular';
   final TextEditingController _noteController = TextEditingController();
+
+  static const List<String> _sizes = <String>['Six-Inch', 'Footlong'];
 
   void _increasequantity() {
     if (_quantity < widget.maxQuantity) {
@@ -67,7 +70,23 @@ class _OrderScreenState extends State<OrderScreen> {
                 onChanged: (value) => setState(() => _note = value),
               ),
             ),
-            OrderItemDisplay(_quantity, 'Footlong', _note),
+
+            // size selector
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: DropdownButton<String>(
+                value: _selectedSize,
+                items: _sizes
+                    .map((s) => DropdownMenuItem<String>(value: s, child: Text(s)))
+                    .toList(),
+                onChanged: (value) {
+                  if (value == null) return;
+                  setState(() => _selectedSize = value);
+                },
+              ),
+            ),
+
+            OrderItemDisplay(_quantity, _selectedSize, _note),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -119,8 +138,6 @@ class OrderItemDisplay extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
-          Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
           Text('$quantity $itemType sandwich(es): ${'🥪' * quantity}'),
           if (note.isNotEmpty)
             Text('Note: $note', style: const TextStyle(fontStyle: FontStyle.italic)),

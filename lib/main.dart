@@ -27,10 +27,10 @@ class OrderScreen extends StatefulWidget {
 class _OrderScreenState extends State<OrderScreen> {
   int _quantity = 0;
   String _note = '';
-  String _selectedSize = 'Regular';
+  String _selectedSize = 'Six-Inch';
   final TextEditingController _noteController = TextEditingController();
 
-  static const List<String> _sizes = <String>['Six-Inch','Regular', 'Footlong'];
+  static const List<String> _sizes = <String>['Six-Inch', 'Footlong'];
 
   void _increasequantity() {
     if (_quantity < widget.maxQuantity) {
@@ -103,6 +103,7 @@ class _OrderScreenState extends State<OrderScreen> {
                   child: const Text('Add'),
                 ),
                 const SizedBox(width: 12),
+                
                 ElevatedButton(
                   onPressed: _quantity > 0 ? _decreasequantity : null,
                   style: ElevatedButton.styleFrom(

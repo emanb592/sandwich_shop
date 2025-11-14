@@ -30,7 +30,7 @@ class _OrderScreenState extends State<OrderScreen> {
   String _selectedSize = 'Regular';
   final TextEditingController _noteController = TextEditingController();
 
-  static const List<String> _sizes = <String>['Six-Inch', 'Footlong'];
+  static const List<String> _sizes = <String>['Six-Inch','Regular', 'Footlong'];
 
   void _increasequantity() {
     if (_quantity < widget.maxQuantity) {
@@ -64,7 +64,7 @@ class _OrderScreenState extends State<OrderScreen> {
                 controller: _noteController,
                 decoration: const InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: 'Special instructions',
+                  labelText: 'Extra Notes',
                   hintText: 'e.g., no onions, extra pickles',
                 ),
                 onChanged: (value) => setState(() => _note = value),

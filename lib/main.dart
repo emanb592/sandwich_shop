@@ -15,7 +15,7 @@ class App extends StatelessWidget {
   }
 }
 
-enum BreadType { white, wheat, brown }
+enum BreadType { white, wheat, brown, wholemeal }
 
 class OrderScreen extends StatefulWidget {
   final int maxQuantity;

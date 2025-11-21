@@ -49,27 +49,4 @@ To change the default max quantity for test/dev, pass maxQuantity into the Order
 To modify visual styling, edit lib/views/app_styles.dart and restart the app.
 License & contribution
 
-This repository is a demo Flutter app. 
-
-Clone the repository
-```sh
-git clone <your-repo-url> sandwich_shop
-cd sandwich_shop
-
-
-# sandwich_shop
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This repository is a demo Flutter app.

@@ -26,6 +26,8 @@ Prerequisites
   - Web: a modern browser.
   - Desktop (optional): Linux, macOS, or Windows toolchains set up for Flutter desktop. See Flutter docs for desktop setup.
 
+https://github.com/emanb592/sandwich_shop
+
 Notable tests:
 Widget tests for UI behavior and interactions: test/views/widget_test.dart
 Unit tests for repository behavior: test/respositories/order_repository_test.dart

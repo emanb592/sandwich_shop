@@ -25,8 +25,42 @@ Prerequisites
   - iOS (macOS only): Xcode and a device/simulator.
   - Web: a modern browser.
   - Desktop (optional): Linux, macOS, or Windows toolchains set up for Flutter desktop. See Flutter docs for desktop setup.
+ 
+  - flutter --version
+  - git clone https://github.com/<emanb592>/<sandwich-shop-app>.git
+cd sandwich-shop-app
 
 https://github.com/emanb592/sandwich_shop
+
+Install the essential tools
+
+Terminal:
+
+macOS – use the built-in Terminal app by pressing ⌘ + Space, typing Terminal, and pressing Return.
+Windows – open the start menu using the Windows key. Then enter cmd to open the Command Prompt. Alternatively, you can use Windows PowerShell or Windows Terminal.
+Git – verify that you have git installed by entering git --version, in the terminal. If this is missing, download the installer from Git's official site.
+
+Package managers:
+
+Homebrew (macOS) – verify that you have brew installed with brew --version; if missing, follow the instructions on the Homebrew installation page.
+Chocolatey (Windows) – verify that you have choco installed with choco --version; if missing, follow the instructions on the Chocolatey installation page.
+Flutter SDK – verify that you have flutter installed and it is working with flutter doctor; if missing, install it using your package manager:
+
+macOS: brew install --cask flutter
+Windows: choco install flutter
+Visual Studio Code – verify that you have code installed with code --version; if missing, use your package manager to install it:
+
+macOS: brew install --cask visual-studio-code
+Windows: choco install vscode
+
+Run the app
+
+Open the integrated terminal in Visual Studio Code by first opening the Command Palette with ⌘ + Shift + P (macOS) or Ctrl + Shift + P (Windows) and typing Terminal: Create New Terminal then pressing Enter.
+
+In the terminal, run the following commands to install the dependencies and run the app in your web browser:
+
+flutter pub get
+flutter run
 
 Notable tests:
 Widget tests for UI behavior and interactions: test/views/widget_test.dart
